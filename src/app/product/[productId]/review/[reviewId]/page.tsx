@@ -1,4 +1,6 @@
-export default function ReviewProduct({
+import { notFound } from "next/navigation";
+
+export default async function ReviewProduct({
   params,
 }: {
   params: {
@@ -6,9 +8,14 @@ export default function ReviewProduct({
     reviewId: string;
   };
 }) {
+  const { productId, reviewId } = await params;
+  if (parseInt(reviewId) > 500) {
+    // Tinggal panggil function notFound dari next/navigation. Otomatis akan diarahkan ke not-found.tsx dalam folder tsb
+    notFound();
+  }
   return (
     <h1>
-      Ini review ke {params.reviewId} untuk detail produk {params.productId}
+      Ini review ke {reviewId} untuk detail produk {productId}
     </h1>
   );
 }

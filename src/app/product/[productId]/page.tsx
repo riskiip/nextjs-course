@@ -2,17 +2,26 @@ import { Metadata } from "next";
 
 type Props = {
   params: {
-    productId: string
-  }
-}
+    productId: string;
+  };
+};
 
-export const generateMetadata = ({params}: Props): Metadata => {
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const param = await params;
+  const title = await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(`iPhone ${param.productId}`);
+    }, 100);
+  });
   return {
-    title: `Product ${params.productId}`
-  }
-}
+    title: `Product ${title}`,
+  };
+};
 
-export default function ProductDetails({params}: Props) {
+export default async function ProductDetails({ params }: Props) {
   // productId bisa otomatis menjadi dynamic params karena nama folder (file-system based)
-  return <h1>Ini detail produk {params.productId}</h1>;
+  const param = await params;
+  return <h1>Ini detail produk {param.productId}</h1>;
 }

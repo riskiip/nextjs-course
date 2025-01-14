@@ -1,3 +1,13 @@
+import Link from "next/link";
+
 export default function Product() {
-  return <h1>Ini halaman Produk</h1>
+  const productId = 10;
+
+  return (
+    <>
+      <h2>Ini detail product</h2>
+      <Link href={`/product/${productId}`}>Lihat detail dari list berikut</Link>
+
+    </>
+  )
 }

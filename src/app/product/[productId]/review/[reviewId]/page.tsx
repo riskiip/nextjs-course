@@ -1,5 +1,9 @@
 import { notFound } from "next/navigation";
 
+function getRandomNumber(count: number) {
+  return Math.floor(Math.random() * count)
+}
+
 export default async function ReviewProduct({
   params,
 }: {
@@ -8,7 +12,11 @@ export default async function ReviewProduct({
     reviewId: string;
   };
 }) {
+  const random = getRandomNumber(2);
   const { productId, reviewId } = await params;
+  if (random === 1) {
+    throw new Error('Error in review component');
+  }
   if (parseInt(reviewId) > 500) {
     // Tinggal panggil function notFound dari next/navigation. Otomatis akan diarahkan ke not-found.tsx dalam folder tsb
     notFound();

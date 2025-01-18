@@ -1,7 +1,5 @@
+import Card from "@/components/card";
+
 export default function UserAnalytic() {
-  return (
-    <div>
-      <h1>User Analytics</h1>
-    </div>
-  );
+  return <Card>User Analytics</Card>;
 }

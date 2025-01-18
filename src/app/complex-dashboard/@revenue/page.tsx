@@ -1,7 +1,5 @@
+import Card from "@/components/card";
+
 export default function Revenue() {
-  return (
-    <div>
-      <h1>Revenue</h1>
-    </div>
-  );
+  return <Card>Revenue</Card>;
 }

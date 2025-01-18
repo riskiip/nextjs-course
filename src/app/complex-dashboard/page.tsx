@@ -1,5 +1,5 @@
 export default function ComplexDashboard() {
   return (
-    <div></div>
+    <h1>Complex Dashboard</h1>
   );
 }

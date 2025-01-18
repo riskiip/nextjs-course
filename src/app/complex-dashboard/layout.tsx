@@ -17,8 +17,8 @@ export default function Layout({
           <div>{user}</div>
           <div>{revenue}</div>
         </div>
+        <div style={{ display: "flex", flex: 1 }}>{notification}</div>
       </div>
-      <div style={{ display: "flex", flex: 1 }}>{notification}</div>
     </div>
   );
 }

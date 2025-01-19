@@ -3,13 +3,17 @@ export default function Layout({
   user,
   revenue,
   notification,
+  login,
 }: {
   children: React.ReactNode;
   user: React.ReactNode;
   revenue: React.ReactNode;
   notification: React.ReactNode;
+  login: React.ReactNode;
 }) {
-  return (
+  const isLoggedIn = true;
+
+  return isLoggedIn ? (
     <div>
       <div>{children}</div>
       <div style={{ display: "flex" }}>
@@ -20,5 +24,7 @@ export default function Layout({
         <div style={{ display: "flex", flex: 1 }}>{notification}</div>
       </div>
     </div>
+  ) : (
+    login
   );
 }

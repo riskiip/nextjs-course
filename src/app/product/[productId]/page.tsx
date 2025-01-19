@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 type Props = {
   params: {
@@ -23,5 +24,11 @@ export const generateMetadata = async ({
 export default async function ProductDetails({ params }: Props) {
   // productId bisa otomatis menjadi dynamic params karena nama folder (file-system based)
   const param = await params;
-  return <h1>Ini detail produk {param.productId}</h1>;
+
+  return (
+    <>
+      <h1>Ini detail produk {param.productId}</h1>
+      <Link href="/" replace><h3>Kembali ke home</h3></Link>
+    </>
+  )
 }
